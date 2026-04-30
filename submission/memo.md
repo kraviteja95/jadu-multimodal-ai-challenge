@@ -2,7 +2,219 @@
 
 ## 0) Relevant Hands-On Experience
 
-> **[YOU MUST WRITE THIS SECTION YOURSELF — describe up to 2 projects you personally worked on. Cover: Context, Your Role, Prompting/System Prompting, Evaluation, Dataset Preparation, Metrics, Outcome, Reflection. Be honest about what was hands-on vs. hypothesis.]**
+### Project 1: Multimodal RAG System for Technical Troubleshooting
+
+#### Context
+I worked on a multimodal Retrieval-Augmented Generation (RAG) system designed to assist users in resolving technical errors from large-scale documentation (Word/PDF corpora). The system supports text, audio, and image inputs, and retrieves structured troubleshooting steps grounded in a centralized knowledge base.
+
+#### My Role
+My work focused on:
+- Designing retrieval and reranking strategies under ambiguity
+- Developing prompt-based reasoning layers for document selection
+- Building evaluation frameworks to measure groundedness and response quality
+- Constructing datasets for supervised fine-tuning and preference learning
+
+---
+
+### Prompting / System Prompting
+
+A key intervention I introduced was a **reasoning-based reranking layer** for document selection (DocID prediction), augmenting embedding-based retrieval.
+
+**Motivation:**
+Initial retrieval relied on nearest-neighbor search over embeddings. However, I observed systematic failure modes:
+- High embedding similarity across semantically overlapping documents
+- Incorrect top-1 retrieval in cases of ambiguous or shared error patterns
+- Sensitivity to noise from OCR-extracted inputs
+
+**Intervention:**
+I introduced a **few-shot prompted cross-document reasoning step**, where the model evaluates multiple candidate documents jointly and selects the most relevant one. I further experimented with **chain-of-thought prompting** to encourage structured comparison across candidates.
+
+This effectively transformed retrieval from a purely similarity-based process into a **hybrid retrieval + reasoning pipeline**.
+
+---
+
+### Evaluation
+
+I designed a **multi-layered evaluation framework** combining human judgment and automated signals:
+
+- **Human evaluation (primary signal):**
+  - Rated outputs on relevance, completeness, and factual grounding
+
+- **LLM-as-judge:**
+  - Used structured prompts to verify factual consistency against retrieved documents
+  - Explicitly identified hallucinations and unsupported claims
+
+- **Pairwise preference evaluation:**
+  - Constructed comparisons between responses to train and validate a reward model
+
+- **Regression suite:**
+  - Maintained a curated set of challenging queries (ambiguous, noisy, multimodal)
+  - Used for iterative validation across system changes
+
+This setup allowed both **pointwise and comparative evaluation** of system improvements.
+
+---
+
+### Dataset Preparation
+
+I constructed datasets aligned with both **supervised fine-tuning** and **preference learning objectives**.
+
+**Data sources:**
+- Real user queries (text, OCR-extracted, and transcribed audio)
+- Retrieved document chunks with associated DocIDs
+- Model-generated responses
+
+**Curation strategy:**
+- Focused on *failure-driven sampling*, including:
+  - Ambiguous queries with multiple plausible documents
+  - Cross-product error code overlaps
+  - Noisy OCR outputs and incomplete inputs
+
+**Preference dataset construction:**
+- Transformed scalar ratings into **pairwise comparisons (chosen vs rejected)**
+- Ensured diversity across quality gradients rather than only extreme cases
+
+This resulted in a dataset that captures both **typical usage patterns and edge-case failures**.
+
+---
+
+### Metrics
+
+I evaluated system performance using a combination of retrieval and generation metrics:
+
+**Most informative:**
+- **Human-rated relevance and completeness**
+- **Top-1 DocID accuracy** (retrieval correctness)
+- **Pairwise accuracy (reward model)**
+
+**Supporting metrics:**
+- Factuality (via LLM-as-judge)
+- Embedding similarity scores
+
+**Key insight:**
+Embedding similarity alone was insufficient as a proxy for correctness, reinforcing the need for **post-retrieval reasoning and reranking**.
+
+---
+
+### Outcome
+
+- Improved robustness of document selection under ambiguity
+- Reduced hallucination rates through stronger grounding
+- Increased alignment between retrieved context and generated responses
+
+**Tradeoffs:**
+- Increased latency due to additional reasoning steps
+- Greater system complexity in orchestration
+
+---
+
+### Reflection
+
+- I would prioritize **evaluation design earlier in the development cycle**, particularly regression suites
+- I would explore **hybrid retrieval (lexical + dense)** to mitigate embedding limitations
+- I would investigate **learned rerankers** as a more efficient alternative to LLM-based reasoning
+
+**Hands-on vs Hypothesis:**
+- Hands-on: prompt design, reranking strategy, dataset construction, evaluation pipelines
+- Exploratory: hybrid retrieval strategies, learned reranking models
+
+---
+
+## Project 2: Fine-Tuning and Preference Optimization for Technical QA
+
+#### Context
+To improve response quality and alignment, I worked on fine-tuning a large language model using supervised learning (LoRA) and training a reward model for preference-based optimization (RLHF).
+
+#### My Role
+I focused on:
+- Designing fine-tuning and evaluation datasets
+- Developing scoring and evaluation prompts
+- Constructing pairwise datasets for reward modeling
+- Interpreting evaluation metrics and model behavior
+
+---
+
+### Prompting / System Prompting
+
+I refined the **response generation prompt** to encourage better synthesis across multiple retrieved documents.
+
+**Motivation:**
+The base model exhibited:
+- Over-reliance on single document chunks
+- Incomplete reasoning across multiple sources
+- Weak handling of conflicting information
+
+**Intervention:**
+I introduced structured instructions emphasizing:
+- Multi-document reasoning
+- Conflict resolution
+- Step-by-step explanation
+
+This improved the model’s ability to **aggregate and reconcile distributed evidence**.
+
+---
+
+### Evaluation
+
+I implemented a combination of:
+
+- **Rubric-based human evaluation**
+- **LLM-as-judge for factual verification**
+- **Scalar reward scoring (0–1 scale)**
+- **Pairwise comparison for preference modeling**
+
+This enabled both **absolute quality assessment** and **relative preference learning**.
+
+---
+
+### Dataset Preparation
+
+**Supervised fine-tuning dataset:**
+- (Query, response) pairs grounded in retrieved documents
+- Prioritized high-quality, human-reviewed responses
+
+**Reward model dataset:**
+- Constructed (prompt, chosen, rejected) triples
+- Derived from real outputs with differing quality scores
+
+**Curation focus:**
+- Capturing nuanced quality differences (not just obvious failures)
+- Ensuring coverage across query types and difficulty levels
+
+---
+
+### Metrics
+
+- **Validation loss (fine-tuning)**
+- **Pairwise accuracy (reward model)**
+- **Correlation with human ratings (qualitative assessment)**
+
+**Key observation:**
+- Loss metrics alone were insufficient; **alignment with human preference** was a more reliable indicator of improvement
+
+---
+
+### Outcome
+
+- Improved response completeness and coherence
+- Better alignment with human judgment of quality
+- Reduced frequency of partial or underspecified answers
+
+**Tradeoffs:**
+- Increased verbosity in some outputs
+- Need for tighter prompt constraints to control length
+
+---
+
+### Reflection
+
+- I would more explicitly separate **retrieval vs generation errors** in evaluation
+- I would incorporate **automated regression benchmarks earlier**
+- I would explore **smaller or specialized models for reranking and evaluation**
+
+**Hands-on vs Hypothesis:**
+- Hands-on: dataset construction, prompt design, evaluation setup, reward modeling
+- Future work: scaling RLHF and improving efficiency of evaluation loops
 
 ---
 
