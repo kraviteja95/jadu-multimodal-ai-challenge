@@ -1,5 +1,59 @@
 # Jadu Multimodal AI Engineer Challenge — Submission
 
+## Table of Contents
+
+- [0) Relevant Hands-On Experience](#0-relevant-hands-on-experience)
+  - [Project 1: Multimodal RAG System for Technical Troubleshooting](#project-1-multimodal-rag-system-for-technical-troubleshooting)
+    - [Context](#context)
+    - [My Role](#my-role)
+    - [Prompting / System Prompting](#prompting--system-prompting)
+    - [Evaluation](#evaluation)
+    - [Dataset Preparation](#dataset-preparation)
+    - [Metrics](#metrics)
+    - [Outcome](#outcome)
+    - [Reflection](#reflection)
+  - [Project 2: Fine-Tuning and Preference Optimization for Technical QA](#project-2-fine-tuning-and-preference-optimization-for-technical-qa)
+    - [Context](#context-1)
+    - [My Role](#my-role-1)
+    - [Prompting / System Prompting](#prompting--system-prompting-1)
+    - [Evaluation](#evaluation-1)
+    - [Dataset Preparation](#dataset-preparation-1)
+    - [Metrics](#metrics-1)
+    - [Outcome](#outcome-1)
+    - [Reflection](#reflection-1)
+
+- [1) Audit the Data and the Current QA](#1-audit-the-data-and-the-current-qa)
+  - [Data Trust Classification](#data-trust-classification)
+  - [Specific Job Reviews](#specific-job-reviews)
+
+- [2) Design V2 of the Workflow](#2-design-v2-of-the-workflow)
+  - [Model Selection](#model-selection-proposal-for-this-exercise)
+  - [Prompt Writing and Rewriting](#prompt-writing-and-rewriting-proposal-for-this-exercise)
+  - [Accept / Retry / Switch / Escalate Logic](#accept--retry--switch--escalate-logic-proposal-for-this-exercise)
+  - [Eval Set Design](#eval-set-design-proposal-for-this-exercise)
+  - [Regression Suite](#regression-suite-proposal-for-this-exercise)
+  - [Metrics and Thresholds for Release](#metrics-and-thresholds-for-release-proposal-for-this-exercise)
+  - [Where Automated Evaluation Decides Alone vs. Human Review](#where-automated-evaluation-decides-alone-vs-human-review-proposal-for-this-exercise)
+  - [Walkthrough: Example Creative Request 1](#walkthrough-example-creative-request-1--realistic-multi-character-scene)
+  - [Walkthrough: Example Creative Request 2](#walkthrough-example-creative-request-2--fantastical-underwater-sequence)
+  - [Production Constraints](#production-constraints-proposal-for-this-exercise)
+
+- [3) Measure Improvement and Prevent Regressions](#3-measure-improvement-and-prevent-regressions)
+  - [Defining Success](#defining-success-proposal-for-this-exercise)
+  - [Primary Quality Metrics](#primary-quality-metrics)
+  - [Secondary / Guardrail Metrics](#secondary--guardrail-metrics)
+  - [Pass / Fail Thresholds](#pass--fail-thresholds)
+  - [Evaluation Slices](#evaluation-slices)
+  - [Validating and Calibrating Automated QA](#validating-and-calibrating-automated-qa-proposal-for-this-exercise)
+  - [Detecting Evaluator Drift](#detecting-evaluator-drift-proposal-for-this-exercise)
+  - [What Counts as a Regression](#what-counts-as-a-regression)
+  - [What Blocks Release Even if Aggregate Improves](#what-blocks-release-even-if-aggregate-improves)
+  - [Permanent Regression Test Case](#permanent-regression-test-case)
+
+- [Appendix: Reviewed JobIds](#appendix-reviewed-jobids)
+
+- [Use of GenAI Tools](#use-of-genai-tools)
+
 ## 0) Relevant Hands-On Experience
 
 ### Project 1: Multimodal RAG System for Technical Troubleshooting
