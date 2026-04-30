@@ -1,0 +1,962 @@
+======================================================================
+LOADING DATA
+======================================================================
+Image entries: 8111
+Video entries: 4141
+
+Image DF shape: (8111, 15)
+Video DF shape: (4141, 16)
+
+======================================================================
+DATA QUALITY OVERVIEW
+======================================================================
+
+--- IMAGE ---
+  Total: 8111
+  Completed: 7889 (97.3%)
+  Failed: 165 | Processing: 53 | Cancelled: 4
+  Has QA score: 3022 (37.3%)
+  Has QA reasoning: 3023 (37.3%)
+  Has actionable feedback: 2190 (27.0%)
+  Has reference images: 5522 (68.1%)
+
+  qaScore distribution (n=3022):
+     0:     6 (  0.2%) 
+     1:     2 (  0.1%) 
+     2:    13 (  0.4%) 
+     3:    63 (  2.1%) █
+     4:    44 (  1.5%) 
+     5:   149 (  4.9%) ██
+     6:    96 (  3.2%) █
+     7:   204 (  6.8%) ███
+     8:   433 ( 14.3%) ███████
+     9:  1300 ( 43.0%) █████████████████████
+    10:   712 ( 23.6%) ███████████
+
+  qaTransformedScore distribution:
+     1:    51 (  1.7%)
+     2:   287 (  9.5%)
+     3:  1221 ( 40.4%)
+     4:  1462 ( 48.4%)
+
+--- VIDEO ---
+  Total: 4141
+  Completed: 3966 (95.8%)
+  Failed: 153 | Processing: 9 | Cancelled: 13
+  Has QA score: 1332 (32.2%)
+  Has QA reasoning: 1332 (32.2%)
+  Has actionable feedback: 1255 (30.3%)
+  Has reference images: 1462 (35.3%)
+
+  qaScore distribution (n=1332):
+     1:     3 (  0.2%) 
+     2:    15 (  1.1%) 
+     3:    62 (  4.7%) ██
+     4:    83 (  6.2%) ███
+     5:    69 (  5.2%) ██
+     6:   210 ( 15.8%) ███████
+     7:   283 ( 21.2%) ██████████
+     8:   332 ( 24.9%) ████████████
+     9:   226 ( 17.0%) ████████
+    10:    49 (  3.7%) █
+
+  qaTransformedScore distribution:
+     1:    61 (  4.6%)
+     2:   359 ( 27.0%)
+     3:   797 ( 59.8%)
+     4:   115 (  8.6%)
+
+  Has rewritten prompt: 963 (23.3%)
+
+======================================================================
+SCORE MAPPING: qaScore → qaTransformedScore
+======================================================================
+
+--- IMAGE (n=3021) ---
+             mean       std  count  min  max
+qaScore                                     
+0.0      1.000000  0.000000      6  1.0  1.0
+1.0      1.500000  0.707107      2  1.0  2.0
+2.0      1.153846  0.375534     13  1.0  2.0
+3.0      1.539683  0.502426     63  1.0  2.0
+4.0      1.977273  0.402818     44  1.0  4.0
+5.0      2.067114  0.276670    149  1.0  3.0
+6.0      2.510417  0.502516     96  2.0  3.0
+7.0      2.897059  0.349794    204  2.0  4.0
+8.0      3.048499  0.235612    433  2.0  4.0
+9.0      3.556582  0.496979   1299  3.0  4.0
+10.0     4.000000  0.000000    712  4.0  4.0
+
+--- VIDEO (n=1332) ---
+             mean       std  count  min  max
+qaScore                                     
+1.0      2.000000  0.000000      3  2.0  2.0
+2.0      1.600000  0.507093     15  1.0  2.0
+3.0      1.387097  0.491062     62  1.0  2.0
+4.0      1.867470  0.341127     83  1.0  2.0
+5.0      2.000000  0.242536     69  1.0  3.0
+6.0      2.404762  0.520375    210  1.0  3.0
+7.0      2.812721  0.390827    283  2.0  3.0
+8.0      2.957831  0.242156    332  1.0  4.0
+9.0      3.283186  0.451546    226  3.0  4.0
+10.0     4.000000  0.000000     49  4.0  4.0
+
+======================================================================
+PER-MODEL QUALITY ANALYSIS
+======================================================================
+
+--- IMAGE ---
+                   count  mean_score  median_score  std_score  pct_high  pct_low  mean_transformed
+modelTitle                                                                                        
+Shot Image OpenAI   1455        8.75           9.0       1.32     86.74     1.51              3.45
+GPT Image 1         1225        8.47           9.0       1.55     82.86     3.10              3.40
+Imagegen4 Fast        20        8.35           9.0       2.54     80.00    10.00              3.40
+Image Edit OpenAI     52        7.17           7.0       1.71     46.15     5.77              2.87
+Flux Kontext Pro     144        6.77           7.0       2.43     47.22    18.75              2.78
+Nano Banana           90        6.59           7.5       2.80     50.00    25.56              2.69
+Flux Schnell          19        5.79           6.0       3.79     42.11    42.11              2.58
+Flux Dev              10        5.10           4.5       2.23     30.00    50.00              2.40
+
+--- VIDEO ---
+                count  mean_score  median_score  std_score  pct_high  pct_low  mean_transformed
+modelTitle                                                                                     
+Seedance 1 Pro    885        7.07           7.0       1.74     47.34    10.51              2.75
+Hailuo 2.0        310        6.98           7.0       1.84     44.19    13.23              2.72
+Kling V2.1         53        6.96           8.0       2.45     50.94    20.75              2.74
+Wan 2.2 Fast       55        6.45           7.0       1.90     32.73    18.18              2.44
+Kling V1.6 Pro     17        6.00           6.0       2.18     29.41    29.41              2.53
+
+======================================================================
+QA INCONSISTENCY DETECTION
+======================================================================
+Finding cases where score and feedback disagree...
+
+
+--- IMAGE: HIGH SCORE (≥8) but MAJOR feedback (157 cases) ---
+  jobId: 6902b24d-2474-46bc-8064-41bffa9d87e1
+    Model: Shot Image OpenAI, qaScore: 9, transformed: 3.0
+    Prompt: Priya’s silhouette framed by the door, entering a dim, cavernous lobby as the door closes behind her...
+    Feedback: Characters - Facial details are not visible in the silhouette, making full character identity confirmation difficult.
+
+  jobId: 9e291f38-acf8-48bf-8451-401044a9d985
+    Model: GPT Image 1, qaScore: 8, transformed: 3.0
+    Prompt: A cinematic anime-style medium-wide shot showing Adam (Image 1), a man with pale grey-toned skin, se...
+    Feedback: Characters - Facial features are less stern and structured than the reference; sleeves are not clearly torn at the elbows; outfit appears cleaner and less worn than described.
+
+  jobId: f3c63939-21f9-4424-9dfa-ed380dbf6215
+    Model: Nano Banana, qaScore: 9, transformed: 3.0
+    Prompt: A cinematic anime-style medium shot of Adam (Image 1), a grey-skinned guy in a grey-blue institution...
+    Feedback: Characters - The outfit’s sleeves are not clearly torn at the elbows as described in the prompt.
+
+  jobId: efd7775c-0394-4558-80b4-d5326bb2f72b
+    Model: GPT Image 1, qaScore: 8, transformed: 3.0
+    Prompt: Keep the character and the car proportional.
+...
+    Feedback: Characters – Differences in facial features and hair from the reference; missing necklace/choker. Pose is similar but not identical.
+
+  jobId: 3f1b859a-5da4-47dd-abae-f06e715e3ff3
+    Model: GPT Image 1, qaScore: 9, transformed: 3.0
+    Prompt: A cinematic anime-style medium-wide shot of Adam (Image 1), a grey-skinned guy in a grey-blue instit...
+    Feedback: Characters - Shirt sleeves are not clearly torn off at the elbows with visible fraying as required by the prompt; sleeves appear mostly intact rather than distinctly ragged or frayed.
+
+
+--- IMAGE: LOW SCORE (≤4) but NO/MINOR feedback (28 cases) ---
+  jobId: e13f55a8-2094-4e8a-b49a-84b72b5130ce
+    Model: Nano Banana, qaScore: 4, transformed: 2.0
+    Prompt: Remove the doctor character and keep the door closed and remove lighting which is coming inside the ...
+    Feedback: 'Setting - The door remains open and outside lighting is still present, both of which contradict the prompt. Story - The environment does not fully match the specified scenario, as the door should be c'
+
+  jobId: c6262bc5-6282-474c-acde-1fc7f1ff25ef
+    Model: GPT Image 1, qaScore: 2, transformed: 1.0
+    Prompt: Render the character from Image 1 with intact facial features and anatomically correct proportions, ...
+    Feedback: 'Characters - Facial features, expression, and anatomical proportions are not preserved; the face is severely distorted and unrecognizable compared to the reference. Pose and naturalism are not maintai'
+
+  jobId: b6b37a62-b499-4203-b8f6-941242574ed2
+    Model: GPT Image 1, qaScore: 2, transformed: 1.0
+    Prompt: Render Adam(Image 1), a grey skinned man as normal in Image 2. Maintain the same visual composition ...
+    Feedback: 'Characters - Face is drastically deformed and unrecognizable, failing to maintain character consistency and normal appearance as required by the prompt.'
+
+  jobId: e9d98dc5-eac7-4645-b27b-7849a3643b13
+    Model: Nano Banana, qaScore: 2, transformed: 1.0
+    Prompt: Replace the face and neck texture in the first image with the natural, clean skin texture of the sec...
+    Feedback: 'Characters - Face and neck texture remain highly stylized and distorted instead of being replaced with natural, clean skin as prompted. Significant anatomical distortions and artifact-like shadowing f'
+
+  jobId: 0dcd26a1-64e6-4d54-bf47-bd8ff079408e
+    Model: Nano Banana, qaScore: 2, transformed: 1.0
+    Prompt: Replace the face and neck texture in the first image with the natural, clean skin texture of the sec...
+    Feedback: 'Characters - Face and neck texture remain stylized and unnatural, failing to match the reference’s clean skin. Major facial flaws include exaggerated lines and unrealistic expressions, deviating from '
+
+
+--- IMAGE: MID SCORE (5-7) but EMPTY feedback (1 cases) ---
+  jobId: cd7cfbe5-b843-4450-9614-b36497b36abb
+    Model: GPT Image 1, qaScore: 7
+
+
+--- VIDEO: HIGH SCORE (≥8) but MAJOR feedback (64 cases) ---
+  jobId: 9f2ebf65-9831-4c31-80fb-a453a47b61fd
+    Model: Seedance 1 Pro, qaScore: 8, transformed: 3.0
+    Prompt: Taxi driver leans forward, giving a low, chilling warning as Priya walks away.
+Camera Angle: CLOSE_S...
+    Feedback: Characters – Facial features and hand positions intermittently deform; inconsistent sweat and shifting hair/clothing details reduce realism.
+
+  jobId: 6e042528-1882-435a-b091-890d0fb12544
+    Model: Seedance 1 Pro, qaScore: 8, transformed: 3.0
+    Prompt: Priya hands the money through the open window; the taxi driver's hand lingers over hers for a split ...
+    Feedback: Characters - Hands and money become distorted and blurred in several frames, with inconsistent finger shapes and ambiguous outlines, reducing realism and consistency.
+
+  jobId: 2946a31f-8007-4884-976b-be4d6bc4fc38
+    Model: Seedance 1 Pro, qaScore: 8, transformed: 3.0
+    Prompt: Priya, tense but resolute, stands firm by the taxi, reaching into her purse and holding out the agre...
+    Feedback: Characters - Priya’s hand, purse, and the money morph inconsistently between frames; her hands and the banknotes are sometimes misshapen and visually unstable. Occasional facial distortions and waveri
+
+  jobId: eaa72af5-9530-4dfb-9734-9f0da0e0ae1e
+    Model: Seedance 1 Pro, qaScore: 8, transformed: 3.0
+    Prompt: The yellow dog character in the reference image is acting as if he got really hurt, and tells the be...
+    Feedback: Characters - Visual artifacts in several frames cause morphing of the mouth, eyes, and occasional inconsistent outlines, reducing character consistency under scrutiny.
+
+  jobId: 96e84782-4efb-43f2-a383-3b6a548e95db
+    Model: Seedance 1 Pro, qaScore: 8, transformed: 3.0
+    Prompt: A low-angle view showed the ground at night as a police officer continued firing his weapon. His bla...
+    Feedback: Characters - Shell casings shift position and orientation abruptly between frames. Style - Some sparks lack continuity and muzzle flash shape is inconsistent and exaggerated frame-to-frame.
+
+
+--- VIDEO: LOW SCORE (≤4) but NO/MINOR feedback (45 cases) ---
+  jobId: 94d76e85-67c2-455d-a3fd-fc8dec3cc767
+    Model: Seedance 1 Pro, qaScore: 4, transformed: 2.0
+    Prompt: A doctor character walking inside the home and yellow dog character is terrified and hides behind so...
+    Feedback: 'Story - The dog does not hide behind the sofa as prompted, and its terror is only minimally conveyed. Action is not fully aligned with the prompt. Characters - Dog's expression does not convincingly s'
+
+  jobId: 88e74340-bf2b-4811-84e7-d3199c612723
+    Model: Seedance 1 Pro, qaScore: 4, transformed: 2.0
+    Prompt: A man with dark grey skin runs forward at high speed, his frantic expression showing desperation. Hi...
+    Feedback: 'Characters - Skin tone shifts from dark grey to a lighter, fairer color, breaking prompt consistency. Setting - Police cars appear and dominate the background from the middle frames onward, violating '
+
+  jobId: 0a970530-b27d-419c-9f60-5c164cd5a141
+    Model: Seedance 1 Pro, qaScore: 4, transformed: 2.0
+    Prompt: A man with dark grey skin runs forward at high speed, his frantic expression showing desperation. Hi...
+    Feedback: 'Story - Presence of visible police cars in front contradicts the core prompt requirement. Characters - Hand posture changes unrealistically in some frames and minor anatomical inconsistencies appear. '
+
+  jobId: 3e90f8f7-5852-44e6-96e8-ad0666d24839
+    Model: Seedance 1 Pro, qaScore: 4, transformed: 2.0
+    Prompt: The girl character in the reference image tells the below dialogue looking directly into the camera....
+    Feedback: 'Characters - The girl’s eye direction and expressions often do not suggest she is delivering dialogue to the camera; mouth shapes do not consistently indicate speaking. Both characters appear in frame'
+
+  jobId: 876e650c-f2cc-44fd-bf98-c318a3129ced
+    Model: Seedance 1 Pro, qaScore: 2, transformed: 1.0
+    Prompt: A man in a plain outfit dives outward through a vertical glass window on the exterior wall of a high...
+    Feedback: 'Setting - The environment never transitions from the corridor to the open air as required, and no exterior wall or glass breaking is shown. Story - The intended action (diving through the window and i'
+
+
+--- VIDEO: MID SCORE (5-7) but EMPTY feedback (0 cases) ---
+
+======================================================================
+INTERESTING JOBS FOR DEEP-DIVE REVIEW
+======================================================================
+
+=== CATEGORY A: COMPLETE FAILURES (qaScore ≤ 3) ===
+
+--- IMAGE failures (score ≤ 3): 84 total ---
+  jobId: e268c427-dc7d-4f82-a1fa-14268f374460
+  Date: 2025-09-05T11:30:06
+  Model: Nano Banana (i2i-nanoBanana)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 2
+  Prompt: Add a reference image 1 character in the input image 2. And make it a wide-angle shot.
+
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-b6478e77-05a4-49f8-9eb3-860515c4653b', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-ea3a392a-23de-43c4-a915-83ebcc2a2725']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-da3b4972-6482-469e-823b-47284650623f
+  QA Reasoning: The generated image fails to add the character from reference image 1 (the black cat) into input image 2, which was the main prompt requirement. The scene remains unchanged from the input image 2, containing only the two human characters without the reference cat. There are no visual artifacts, but the major flaw is the complete absence of the referenced character, failing the prompt.
+  QA Feedback: Characters - The black cat from reference image 1 is completely missing, which was the core prompt requirement. Story - The intended action of inserting the cat is not fulfilled, leading to a significant mismatch with the prompt.
+
+  jobId: 0a92f138-3d25-4bdc-a0f6-a509b0f66d6b
+  Date: 2025-09-03T09:55:47
+  Model: Flux Kontext Pro (fluxKontextPro)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 2
+  Prompt: Move the armored vehicle off the railway tracks and position it on the distant open land behind the tracks, while keeping the nighttime setting, street lamp, and overall composition intact. The armored vehicle should be clearly away from the tracks, with its headlights and emergency lights still ill
+  Reference images: []
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-75ba0899-4aff-4bf1-b953-92c1db52188b
+  QA Reasoning: The generated image does not fulfill the prompt requirement of moving the armored vehicle off the railway tracks and onto the distant open land. The vehicle remains on the tracks in a nearly identical position as in the reference image, with headlights and emergency lights on, from a similar angle and composition. There are no significant visual artifacts, but the core prompt requirement is not me
+  QA Feedback: Story - The main action described in the prompt (moving the armored vehicle off the tracks and onto the distant open land) is not fulfilled; the vehicle stays on the tracks, making the core prompt requirement unmet.
+
+  jobId: e56e6dc1-a81a-4221-aa15-6786ee720060
+  Date: 2025-09-03T08:45:49
+  Model: Flux Dev (fluxDev)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 2
+  Prompt: make this car 1958 white Mercedes 300 SL Roadster, moving on a road, maintain the art style a cinematic anime/graphic novel style with bold line work, cel-shading, moody noir lighting, dynamic perspective, and an urban thriller tone and keep the character same driving that car, maintain the characte
+  Reference images: []
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-79c1d2e7-00df-4e64-ad2a-6f7912d52853
+  QA Reasoning: The generated image does not maintain the same character as the reference image—the sex, hairstyle, facial features, and overall appearance differ significantly. While the art style, car, and background generally match the prompt, the character consistency requirement is not met. There are no major visual artifacts, but the major flaw is the change of character.
+  QA Feedback: Characters - The character's sex, hairstyle, facial features, and overall appearance do not match the reference and differ significantly, making the character appear as a different person.
+
+--- VIDEO failures (score ≤ 3): 80 total ---
+  jobId: e5406625-7fb0-43b5-a59d-0747acb9b9db
+  Date: 2025-09-05T11:17:23
+  Model: Seedance 1 Pro (i2vSeedancePro)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 1
+  Prompt: No characters present. The environment should appear calm but empty, moonlight casting soft shadows, emphasizing absence and solitude.
+Camera Angle: PILLOW_SHOT - Establishes the setting's emotional emptiness before returning to character focus. 
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-3f45db3c-e913-4455-bb41-985f9e1ba7d6']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-72df1117-d1c9-4878-8b0b-711e589d8d05
+  QA Reasoning: The video frames do not match the prompt, as a character (the dog) is present throughout, which contradicts the requirement for an empty environment emphasizing absence and solitude. The pillow shot intended to establish emotional emptiness is not achieved. There are also noticeable animation artifacts in transitions (distortions and warping in the dog’s pose and facial features), particularly fro
+  QA Feedback: Characters - Character (dog) present throughout, contradicting the "no characters" prompt. Setting - Environment fails to emphasize absence and solitude as required, due to presence of the dog and lack of emotional emptiness in the pillow shot. Story - Prompt for establishing emptiness is not achieved. Style - Major animation artifacts and distortions noticeable from the third frame onward.
+  Rewritten Prompt: Start with a still, empty living room at night; show only the unoccupied pet bed, no characters visible. Moonlight softly filters through the window, casting gentle shadows and highlighting the quiet and loneliness. Use a low pillow-level camera angle from the corner, lingering to emphasize the soli
+
+  jobId: 29a49029-908c-4079-add8-c26f3ca3b44d
+  Date: 2025-09-05T07:27:28
+  Model: Wan 2.2 Fast (i2vWan2p2Fast)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 1
+  Prompt: All proportions, clothing, skin tone, and design remain consistent throughout — no distortions, no color drift. The environment (street, car, police, background) stays unchanged. Red and blue police lights undulate rhythmically but do not affect overall brightness or alter skin tones.
+
+0–1.5s (polic
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-9c7a262d-b6c7-4c08-8301-48be94c37574']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-d46a7417-1d98-40ff-894b-583d9d8cd232
+  QA Reasoning: Multiple major issues are present. There is firing and visible muzzle flashes in several frames, directly contradicting the prompt’s requirement that there be no firing, no muzzle flashes, and no extra debris. The man in the foreground does not clearly glance sharply to his left in a panicked manner; the motion is sluggish and lacks urgency, and there is no clear transition to a proper sprint. The
+  QA Feedback: Characters – Multiple hallucinations and inconsistencies: repeated firing and visible muzzle flashes violate prompt, police and foreground man’s actions do not match required movements; severe drift in proportions, facial features, and poses, including noticeable deformations. Story – Key prompt actions are missing or incorrect (no proper panicked glance, sluggish instead of urgent motion, incorre
+  Rewritten Prompt: Animate the attached image with strict visual consistency in proportions, clothing, skin tone, facial features, and background. From 0–1.5s: The police officers in the background, weapons initially lowered, each take one or two small, staggered steps forward while beginning to raise weapons—no simul
+
+  jobId: ec156b55-5ff1-462f-b525-d8d0cb5a39f0
+  Date: 2025-09-05T05:18:51
+  Model: Seedance 1 Pro (i2vSeedancePro)
+  Status: completed
+  qaScore: 3
+  qaTransformedScore: 1
+  Prompt: A man in a plain outfit had already dived outward through a vertical glass window on the exterior wall of a high-rise building. The shot began with him mid-dive, body extended forward in open air, glass fragments already scattering outward around him. He moved only away from the building into open a
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-233bc54b-ae30-4662-9cba-a6679b9f22c0']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-a4c59bb7-e076-4058-8b86-bae5e7859ec9
+  QA Reasoning: The frames fail on multiple aspects of the prompt. The man never convincingly exits the interior space—he remains inside the building, so the core visual of him diving outward through a window into open air while glass scatters is missing. The background with soldiers changes perspective and the soldiers’ poses and weapon positions alter, violating the requirement that they remain frozen and unrea
+  QA Feedback: Characters - The main character's face and body lose consistency across frames, with notable distortions in facial features and proportions. Setting - The soldiers in the background change poses and perspective, failing to remain frozen and consistent as required. Story - The critical action of the man diving fully outside the window and remaining in open air is missing; he never convincingly exit
+  Rewritten Prompt: Animated sequence matching the reference image: A man with a faded haircut, muted grey skin tone, and distinct facial features and proportions, wearing a plain outfit, dives outward through a vertical glass window of a high-rise building. Begin with him mid-dive, body extended forward outside the sh
+
+
+=== CATEGORY B: HIGH SCORES (≥9) WITH FEEDBACK ===
+
+--- IMAGE high scores with feedback: 1184 total ---
+  jobId: 6702d149-c2c4-4133-8b65-a9eef6449453
+  Date: 2025-09-05T11:20:00
+  Model: Nano Banana (i2i-nanoBanana)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 3
+  Prompt: Create a scene where reference image character 1,2 & 3 all are together in the frame. Vet is talking to a girl in reference image 3 pointing to a cat in reference image 1.  Background will be of a reference image 4.
+Character in the reference image 2 should look like a villain.
+
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-0c187082-bcd0-48b4-9fd6-9b8ca699b33a', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-6f9167f5-0d6e-4b2a-b02f-cebb165435a2', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-7556b9cb-a145-4cad-8198-1ad75a0917d0', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-f38842e4-a365-479d-aa6c-c67e76ccc234']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-a5ee71cc-00c2-4aba-a704-fbedca219221
+  QA Reasoning: The generated image fulfills the prompt well: the vet (reference 2, looking villainous), the girl (reference 3), and the cat (reference 1) are all present in the scene together, and the vet is pointing to the cat while talking to the girl. The background matches reference image 4. The characters are highly consistent with their references in terms of appearance, pose, and facial features, with min
+  QA Feedback: Characters - The girl's mouth expression is neutral instead of happy as in the reference, and the cat's angle differs slightly from the reference.
+
+  jobId: 3767e33f-c637-41fe-bf4d-f0560d1c1334
+  Date: 2025-09-05T11:09:12
+  Model: Shot Image OpenAI (i2i-gpt-image-1)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 3
+  Prompt: Vet is talking to amrita, mohini is looking at them calmly.
+Camera Angle: WIDE_SHOT -Shows the subject and significant background to convey scale or environment.. 
+The Mohini reference is given in image 1. 
+The Amrita reference is given in image 2. 
+The Vet reference is given in image 3. 
+The scene 
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-4566efbe-7aaa-4791-8004-def1358d700a', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-9843d651-736c-4f69-b5af-441ad8c4ccb9', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-c5bda053-bc94-4fb0-acbd-c97c26e37f98', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-d30ed02f-597f-403e-868d-b820e9a2d4e8']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-92438e95-ce60-4e60-b6a0-129fa7d77ffd
+  QA Reasoning: The generated image matches the prompt well: the vet is talking to Amrita, while Mohini (the cat) is looking at them calmly. The camera angle is a wide shot, effectively showing all characters and enough environment to establish the "Living Room Under Tension Daytime" setting from the reference. All three characters resemble their references in facial features, pose, and overall appearance, and th
+  QA Feedback: Characters - Amrita’s expression appears more anxious than calm, and her pose is slightly different from her reference, leading to minor inconsistency in conveyed emotion.
+
+  jobId: 45a1b8e8-6f1c-426f-9f08-8c46b0aaba08
+  Date: 2025-09-05T11:05:38
+  Model: Nano Banana (i2i-nanoBanana)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 4
+  Prompt: Create a scene where reference image character 1,2 & 3 all are together in the frame. Vet is talking to a girl in reference image 3.  Background will be of a reference image 4
+
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-184f12b2-ba40-481b-a2aa-5f300b7ba00d', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-47793239-ffc6-48ad-920a-d38493e85d0b', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-7eb811bc-64c4-4757-b006-2a139211bc38', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-cd98d9ef-f4cf-4836-8f1f-b259c7374fdc']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-f8909c8f-e70f-4bb4-969c-4c5e8901acba
+  QA Reasoning: The generated image meets the prompt well by including the characters (vet, girl, cat) together with the background from reference image 4. The cat, vet, and girl are all consistent in appearance, matching key features from the references. The vet is talking to the girl as instructed. The only minor issue is the vet and cat have a more friendly tone compared to their more serious expressions in th
+  QA Feedback: Characters - Tone of the vet and cat is more friendly than in the references; consider adjusting expressions to match the more serious mood of the original images.
+
+--- VIDEO high scores with feedback: 200 total ---
+  jobId: d5b5583c-dba5-482a-9bf5-7226633756ed
+  Date: 2025-09-05T11:38:15
+  Model: Wan 2.2 Fast (i2vWan2p2Fast)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 3
+  Prompt: A stylish woman with a sleek bob haircut and dark sunglasses sits in the driver’s seat of a car at night. She wears a sharp black suit and a ruby choker. The camera is focused on her as she remains still, only her lips moving slightly as she speaks in a subtle, restrained way. Minimal motion, smooth
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-7fbd52ae-62cd-49f9-bf75-65588a7a8120']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-ee0e77cc-d735-4d35-bcbe-ef89eaa23789
+  QA Reasoning: The frames match the prompt very well. The woman’s appearance, attire, and accessories (sleek bob, dark sunglasses, black suit, ruby choker) are consistent across all frames and remain cinematic and composed. The minimal motion depicted fits the scene and atmosphere described. There are only very minor and barely noticeable changes due to subtle mouth motion, with no obvious or distracting video a
+  QA Feedback: Characters - Minor changes in facial smoothness and subtle mouth motion prevent perfect identity consistency under close scrutiny.
+  Rewritten Prompt: A stylish woman with a sleek bob haircut and dark sunglasses sits still in the driver’s seat of a car at night, wearing a sharp black suit and a ruby choker. The camera focuses on her face and upper body; only her lips move subtly as she speaks calmly. Ensure facial features remain smooth and consis
+
+  jobId: d4f887a0-fca2-481e-8b23-d4a699efa06e
+  Date: 2025-09-05T10:13:41
+  Model: Seedance 1 Pro (i2vSeedancePro)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 3
+  Prompt: A girl character is blushing and telling the below dialogue.
+DIALOGUE : Haan woh.. Meri dietician ka kaamal hai..
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-addf9050-ab9f-4de7-b3a7-bc48d6e1b021']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-649594fb-5839-40de-b5b4-9f7aa8b59f39
+  QA Reasoning: The frames match the prompt well with a blushing girl character who appears to be saying something bashfully, fitting the provided dialogue. The character retains highly consistent facial features, pose, and overall appearance across all frames, closely aligning with the reference image. There are slight but perceptible shifts in facial proportions and subtle changes in the blush area between some
+  QA Feedback: Characters – There are slight but perceptible shifts in facial proportions and subtle changes in the blush area between some frames, which reduce identity consistency under close inspection. Style – Minor artifacts in the blending of lines and shading are visible on close review.
+  Rewritten Prompt: Animate the same girl character in the reference image, keeping her facial proportions, blush placement, and line shading fully consistent throughout. She blushes deeper while bringing her hands to her cheeks and softly says, "Haan woh.. Meri dietician ka kaamal hai.."—her eyes slightly widening, lo
+
+  jobId: cc74a3b6-a127-4e6b-a9d8-3bb29fdff453
+  Date: 2025-09-05T07:26:40
+  Model: Seedance 1 Pro (i2vSeedancePro)
+  Status: completed
+  qaScore: 9
+  qaTransformedScore: 4
+  Prompt: A low-angle night shot showed the cracked pavement as brass bullet shells fell to the ground with realistic weight, bouncing and clattering as they struck. Some shells were caught mid-air, others already scattering across the ground. No weapons were visible in the frame, and no weapon should ever ap
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-ee03d7a1-f44b-4fc8-9dd8-1ae08d51522f']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-d0176467-9370-4020-aeae-83b68ec42d70
+  QA Reasoning: The frames are highly consistent with the reference image and prompt details: low-angle night shot, realistic falling brass shells, heavy combat boot planted on cracked pavement, undulating police siren lights, muzzle flashes without any weapon visible, and static background. The lighting, color grading, and the position of the elements remain highly stable and match the prompt requirements. There
+  QA Feedback: There are extremely minor visual inconsistencies/artifacts with sparks and shell ejections, such as very slight deformations or frame interpolation artifacts, but these are barely perceptible and do not impact prompt accuracy, character identity, or scene consistency. No further actionable feedback.
+
+
+=== CATEGORY C: RETRY PATTERNS ===
+
+Image prompt groups with ≥3 attempts: 614
+
+  Prompt: 'A strong feather'
+    Attempts: 49
+    Models used: [('Flux Schnell', 49)]
+    Scores: []
+    JobIds: ['ae0beed5-f013-4c78-8c33-6004c7e0b45a', '564285a8-1f3b-48a6-9f62-17a0336935ea', 'ac2667b8-0ae3-488f-8bae-67a0e308d231', '75ea7b0f-f2a7-411a-a4b6-ff481e850f7d', 'b8ce52d9-0954-4b96-a7da-c405ed9f7654']
+
+  Prompt: 'An image'
+    Attempts: 30
+    Models used: [('Flux Schnell', 16), ('Imagegen4 Fast', 6), ('GPT Image 1', 5), ('cuddles-alpha', 2), ('Nano Banana', 1)]
+    Scores: [10, 10, 10, 10, 10, 10, 10, 10]
+    JobIds: ['c5117af5-b17d-4224-b4cc-dd547b8acd6d', '1f9e9f46-90ee-42a7-87b7-0aaa29960890', '1d5ac2c9-aabd-4648-8ebd-fe54d50f0371', '64529e11-ceb9-40ca-959e-999c1fa492be', 'd304d13b-1982-43d0-af25-423f8222e6e5']
+
+  Prompt: 'Design Banu, a futuristic warrior, in Manmaru-style anime aesthetics. She wears'
+    Attempts: 25
+    Models used: [('Flux Dev', 16), ('Flux Schnell', 9)]
+    Scores: []
+    JobIds: ['bd1f33fa-735e-4791-866e-3584869ea805', 'd8fd22d8-9d37-4b29-8e60-893165d7adbe', '930cc967-2dff-4b8e-89ce-95bb5074c7d1', 'b97a1589-07f5-44f2-82d2-8149e4423085', 'dfe4c67a-2e6b-4bef-82f7-99c097a3a7ea']
+
+Video prompt groups with ≥3 attempts: 385
+
+  Prompt: 'Still life, Camera sliding 360 degrees on circular dolly track'
+    Attempts: 22
+    Models used: [('Hailuo 2.0', 22)]
+    Scores: [3, 8, 7, 6, 4, 4, 2, 7, 6, 8, 6, 9]
+    JobIds: ['e651cc2a-db04-4c05-904f-43c2e69eab47', '6ad4359e-ddfa-4b7f-911d-cea3272270b4', '2bd940aa-ccb4-47e0-bf6c-17504d08c520', '1f64c4c7-d421-42b5-a5a2-1c9270f00af5', 'c9b07b6f-506f-4cbe-a609-1aaae18b102c']
+
+  Prompt: 'A woman in a dark green suit with a gold pendant necklace has just woken up from'
+    Attempts: 19
+    Models used: [('Seedance 1 Pro', 9), ('Kling V2.1', 3), ('Kling V2.0', 1), ('Kling V1.6 Pro', 1), ('Kling V1.6', 1), ('Minimax I2V-01-Director', 1), ('Minimax I2V-01-Live', 1), ('Veo2', 1), ('Hailuo 2.0', 1)]
+    Scores: [4, 7, 8, 8, 8, 8, 6, 8, 6, 8, 8, 6, 4, 7, 7, 5, 8, 9, 8]
+    JobIds: ['310c5bfb-89f0-4a99-b863-80f5bd7eb647', '1f305447-f4f1-4bc1-a6b2-bf1ab8a8b6dc', '61864720-263e-428f-a0bd-3d6dba6041ad', 'f8d5a0d1-38df-442f-8eca-e4a944c96b73', 'dd26b3dc-a99c-4252-b623-efa10a2ad280']
+
+  Prompt: 'The lady is looking behind and holding her bag, she slowly looks forward and bri'
+    Attempts: 18
+    Models used: [('Seedance 1 Pro', 10), ('Hailuo 2.0', 8)]
+    Scores: []
+    JobIds: ['3fe60875-33b1-4d3d-a6c2-cbcaf7c6f076', 'd9c2552f-009d-4a06-9adf-ac17f27ad65b', '05ef4787-ccf5-4f46-965a-c2b9d0a0b86f', '3ed0d653-a53e-49dc-900d-ff1c1688048f', '8cc6b72c-bad2-45c4-8d1c-8ec144b2c66d']
+
+
+=== CATEGORY D: PERFECT SCORES (qaScore = 10) ===
+
+--- IMAGE perfect scores: 712 total ---
+    Of which have non-empty feedback: 11
+  jobId: 836ad220-602c-446e-81d2-182cc19e33fd
+  Date: 2025-09-02T07:12:01
+  Model: Shot Image OpenAI (i2i-gpt-image-1)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: Mohini's body arcs through the air in a anger expression.
+Camera Angle: MEDIUM_SHOT -Frames the subject from the waist up, balancing subject and environment.. Quick, impactful, uses motion blur. 
+The Mohini reference is given in image 1. 
+The scene takes place in Living Room Under Tension Daytime en
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-4566efbe-7aaa-4791-8004-def1358d700a', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-9843d651-736c-4f69-b5af-441ad8c4ccb9']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-de60d8dd-63fe-4800-aaf8-4b94f43e5bae
+  QA Reasoning: The generated image accurately depicts Mohini mid-air with an angry expression, matching the body color, facial features, and eye color from the reference. The pose is energetic with clear motion blur, and the scene is set in the living room environment with correct perspective, matching the composition called for. There are no visible visual artifacts or anatomical errors. The framing and cinemat
+  QA Feedback: <no actionable feedback>
+
+  jobId: d53846f3-92a0-4c4a-9bac-6566f98af608
+  Date: 2025-08-29T09:21:56
+  Model: Shot Image OpenAI (i2i-gpt-image-1)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: A cinematic high-angle shot inside the “Corridor and Kitchen.” Deborah stands directly at the kitchen entrance, with the corridor visible behind her. The camera looks down from above, showing the kitchen floor consumed by the spreading Formless Black Ooze. The black liquid stretches outward in thick
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-12d63544-dcf4-482c-8c76-d9f36646192b', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-1507b185-6454-4057-ac64-cbfee6b256e2', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-f5a2b4c2-f387-4074-9487-ea3b613bf57f']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-95162e9b-6f13-4599-96af-44df067300ec
+  QA Reasoning: The generated image matches the prompt exactly: it depicts a high-angle, cinematic view inside the “Corridor and Kitchen,” with Deborah standing at the kitchen entrance, the corridor and its warm light visible behind her, and Deborah rendered small and panicked beneath the harsh overhead light. The Formless Black Ooze is spreading in thick, formless puddles across the kitchen floor, not confined t
+  QA Feedback: <No actionable feedback — all dimensions (Characters, Setting, Style, Story) meet the requirements perfectly.>
+
+  jobId: ab65492a-83e1-4431-9336-6d2f35d35248
+  Date: 2025-08-27T09:18:00
+  Model: Nano Banana (t2i-nanoBanana)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: 2 persons dancing together
+  Reference images: []
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-ecee1ec4-1676-4b97-b2cf-6aae1660a3fa
+  QA Reasoning: The image perfectly matches the prompt of two persons dancing together. The characters are well-rendered, their facial features, pose, and overall appearance are consistent throughout the image. There are no visible visual artifacts or anatomical errors. The lighting and setting enhance the scene, and the image is free from distortions.
+  QA Feedback: <no actionable feedback>
+
+  jobId: c2c56d4b-9a36-44ad-a764-f8aa07f4f1f0
+  Date: 2025-09-05T08:16:39
+  Model: Shot Image OpenAI (i2i-gpt-image-1)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: A quiet city street at midnight. Priya steps out of a taxi, exhausted, as the cab idles at the curb in front of her apartment building.
+Camera Angle: ESTABLISHING_SHOT -A wide or distant view used to show the setting or context.. Wide view shows the empty street, the looming building, and places Pri
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-2b09bc34-5915-48c2-b592-28c4f97aaba8', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-80e2dd8b-e1e6-455b-befd-bdb772efb16d', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-fc867c3b-dd2e-4052-88fd-15dcc3a09510']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-33738d04-48a4-4648-a1d9-37e39a16c309
+  QA Reasoning: The generated image matches the prompt very well, providing an establishing, wide shot of a quiet city street at midnight with the apartment building and empty street visible, and it places both Priya and the taxi (with the driver) within the frame. The apartment building and street environment are consistent with the reference. Priya’s appearance, pose, clothing, and facial features all closely m
+  QA Feedback: 
+
+  jobId: ccbefab0-94f4-4dda-9d71-2505640a9f46
+  Date: 2025-09-05T07:27:46
+  Model: Shot Image OpenAI (i2i-gpt-image-1)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: A quiet city street at midnight. Priya steps out of a taxi, exhausted, as the cab idles at the curb in front of her apartment building.
+Camera Angle: ESTABLISHING_SHOT -A wide or distant view used to show the setting or context.. Wide view shows the empty street, the looming building, and places Pri
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-2b09bc34-5915-48c2-b592-28c4f97aaba8', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-80e2dd8b-e1e6-455b-befd-bdb772efb16d', 'https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-fc867c3b-dd2e-4052-88fd-15dcc3a09510']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-e48cefb0-5b76-4fd9-aca2-d2998b9cfe1a
+  QA Reasoning: The generated image captures the establishing shot as described in the prompt, showing a wide view of the quiet, empty city street at midnight, the looming apartment building, the idling taxi, and Priya stepping out and appearing exhausted. Priya is consistent with the reference in terms of facial features, attire, and expression, while the taxi driver matches his reference in appearance and unifo
+  QA Feedback: 
+
+--- VIDEO perfect scores: 49 total ---
+    Of which have non-empty feedback: 0
+  jobId: a0bca131-fa18-4158-b497-9b62e2266251
+  Date: 2025-09-05T05:46:42
+  Model: Wan 2.2 Fast (i2vWan2p2Fast)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: Three armed police officers stand firmly in place, completely still and unmoving. Their posture is rigid and disciplined, with no breathing, no shifting, and no gestures of any kind. They remain locked in position, staring cautiously at something off-camera. The camera is static, showing them frozen
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-505e6933-30f1-4105-856d-b977fd0c9c52']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-e5c3e9de-3646-4d6d-bca0-797911e0c65b
+  QA Reasoning: The frames accurately match the prompt, depicting three armed police officers standing firmly in place, rigid and disciplined, with no visible motion or gestures. The static camera setup and flashing red and blue police lights in the background are portrayed as the only motion, as required. Character consistency in appearance, pose, and gear between the reference image and video frames is maintain
+  QA Feedback: 
+
+  jobId: abde84f8-522b-4075-8e3f-34450f42af52
+  Date: 2025-09-04T09:22:24
+  Model: Seedance 1 Pro (i2vSeedancePro)
+  Status: completed
+  qaScore: 10
+  qaTransformedScore: 4
+  Prompt: The camera holds on the red emergency light fixed to the wall. The light source inside the casing spins in a slow, steady rotation, like a classic siren. As it rotates, the cast beams of red light sweep across the wall, ceiling, and nearby surfaces in a circular pattern. The rotation remains smooth 
+  Reference images: ['https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-ec5ebf81-0148-4d72-8c28-294fd3c58072']
+  Output: https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-51dbb5b7-08de-4145-89a6-e90f8ec12996
+  QA Reasoning: All frames closely match the reference image and the prompt requirements. The red emergency light is held in focus, its rotation is smooth and consistent, and the beams sweep circularly without flicker or distortion. The environment and casing remain perfectly still, and there are no visual artifacts or hallucinations.
+  QA Feedback: 
+
+
+======================================================================
+FEEDBACK PATTERN ANALYSIS
+======================================================================
+
+--- IMAGE: Feedback dimension frequency ---
+    Characters:  1354 (61.8%)
+       Setting:   596 (27.2%)
+         Style:   414 (18.9%)
+         Story:   488 (22.3%)
+     Animation:     4 (0.2%)
+      Lighting:   261 (11.9%)
+   Composition:    61 (2.8%)
+       Anatomy:    49 (2.2%)
+
+--- VIDEO: Feedback dimension frequency ---
+    Characters:   916 (73.0%)
+       Setting:   296 (23.6%)
+         Style:   315 (25.1%)
+         Story:   457 (36.4%)
+     Animation:   268 (21.4%)
+      Lighting:   134 (10.7%)
+   Composition:     4 (0.3%)
+       Anatomy:    27 (2.2%)
+
+--- Common failure mode keywords ---
+
+  --- IMAGE ---
+            missing character:  325 (14.8%)
+               identity drift:  406 (18.5%)
+             wrong expression:   45 (2.1%)
+            anatomical issues:  160 (7.3%)
+               style mismatch:  218 (10.0%)
+            wrong action/pose:  170 (7.8%)
+                    artifacts:  177 (8.1%)
+            background issues:  242 (11.1%)
+             skin tone issues:  113 (5.2%)
+              clothing issues:  128 (5.8%)
+
+  --- VIDEO ---
+            missing character:  203 (16.2%)
+               identity drift:  351 (28.0%)
+             wrong expression:   10 (0.8%)
+            anatomical issues:  195 (15.5%)
+               style mismatch:    9 (0.7%)
+            wrong action/pose:  143 (11.4%)
+                    artifacts:  872 (69.5%)
+            background issues:  130 (10.4%)
+             skin tone issues:    8 (0.6%)
+              clothing issues:   32 (2.5%)
+
+======================================================================
+EMPTY/SPECIAL FEEDBACK ANALYSIS
+======================================================================
+
+--- IMAGE ---
+  Scored entries: 3022
+  Empty/no-action feedback: 859 (28.4%)
+  Score distribution for empty feedback:
+    Score 7: 1
+    Score 8: 9
+    Score 9: 143
+    Score 10: 706
+
+--- VIDEO ---
+  Scored entries: 1332
+  Empty/no-action feedback: 78 (5.9%)
+  Score distribution for empty feedback:
+    Score 8: 2
+    Score 9: 27
+    Score 10: 49
+
+======================================================================
+TRANSFORMED SCORE MAPPING ANALYSIS
+======================================================================
+
+--- IMAGE ---
+qaTransformedScore   1    2     3     4   All
+qaScore                                      
+0                    6    0     0     0     6
+1                    1    1     0     0     2
+2                   11    2     0     0    13
+3                   29   34     0     0    63
+4                    3   40     0     1    44
+5                    1  137    11     0   149
+6                    0   47    49     0    96
+7                    0   24   177     3   204
+8                    0    2   408    23   433
+9                    0    0   576   723  1299
+10                   0    0     0   712   712
+All                 51  287  1221  1462  3021
+
+  INCONSISTENT mappings (qaScore maps to multiple transformed scores):
+    qaScore=1 maps to 2 different transformed scores: {1.0: np.int64(1), 2.0: np.int64(1)}
+    qaScore=2 maps to 2 different transformed scores: {1.0: np.int64(11), 2.0: np.int64(2)}
+    qaScore=3 maps to 2 different transformed scores: {2.0: np.int64(34), 1.0: np.int64(29)}
+    qaScore=4 maps to 3 different transformed scores: {2.0: np.int64(40), 1.0: np.int64(3), 4.0: np.int64(1)}
+    qaScore=5 maps to 3 different transformed scores: {2.0: np.int64(137), 3.0: np.int64(11), 1.0: np.int64(1)}
+    qaScore=6 maps to 2 different transformed scores: {3.0: np.int64(49), 2.0: np.int64(47)}
+    qaScore=7 maps to 3 different transformed scores: {3.0: np.int64(177), 2.0: np.int64(24), 4.0: np.int64(3)}
+    qaScore=8 maps to 3 different transformed scores: {3.0: np.int64(408), 4.0: np.int64(23), 2.0: np.int64(2)}
+    qaScore=9 maps to 2 different transformed scores: {4.0: np.int64(723), 3.0: np.int64(576)}
+
+--- VIDEO ---
+qaTransformedScore   1    2    3    4   All
+qaScore                                    
+1                    0    3    0    0     3
+2                    6    9    0    0    15
+3                   38   24    0    0    62
+4                   11   72    0    0    83
+5                    2   65    2    0    69
+6                    3  119   88    0   210
+7                    0   53  230    0   283
+8                    1   14  315    2   332
+9                    0    0  162   64   226
+10                   0    0    0   49    49
+All                 61  359  797  115  1332
+
+  INCONSISTENT mappings (qaScore maps to multiple transformed scores):
+    qaScore=2 maps to 2 different transformed scores: {2.0: np.int64(9), 1.0: np.int64(6)}
+    qaScore=3 maps to 2 different transformed scores: {1.0: np.int64(38), 2.0: np.int64(24)}
+    qaScore=4 maps to 2 different transformed scores: {2.0: np.int64(72), 1.0: np.int64(11)}
+    qaScore=5 maps to 3 different transformed scores: {2.0: np.int64(65), 3.0: np.int64(2), 1.0: np.int64(2)}
+    qaScore=6 maps to 3 different transformed scores: {2.0: np.int64(119), 3.0: np.int64(88), 1.0: np.int64(3)}
+    qaScore=7 maps to 2 different transformed scores: {3.0: np.int64(230), 2.0: np.int64(53)}
+    qaScore=8 maps to 4 different transformed scores: {3.0: np.int64(315), 2.0: np.int64(14), 4.0: np.int64(2), 1.0: np.int64(1)}
+    qaScore=9 maps to 2 different transformed scores: {3.0: np.int64(162), 4.0: np.int64(64)}
+
+======================================================================
+SAME PROMPT, DIFFERENT MODELS COMPARISON
+======================================================================
+
+--- IMAGE: Prompts tried with multiple models AND scored: 87 ---
+
+  Prompt: 'make this car 1958 white Mercedes 300 SL Roadster, moving on a road, maintain th'
+                       GPT Image 1 | Score: 9 | e3e19092-7034-4664-a771-6958ff2cf821
+                       GPT Image 1 | Score: 9 | 759e4cc2-d050-4b49-b20f-3c39fface2ed
+                       GPT Image 1 | Score: 9 | 82e12aaf-7cfc-47bb-9cfd-a68bc875e98c
+                          Flux Dev | Score: 3 | e56e6dc1-a81a-4221-aa15-6786ee720060
+                       GPT Image 1 | Score: 10 | 0b070f9e-b620-48e7-8c0c-1bfbbbeed393
+                  Flux Kontext Pro | Score: 9 | 8843c76a-a977-460d-b073-4d1f620c5637
+                  Flux Kontext Pro | Score: 8 | 28223238-451b-49a7-89fe-83dc9aada3cb
+                  Flux Kontext Pro | Score: 10 | fa44076e-d2eb-4079-9edd-770209341066
+                  Flux Kontext Pro | Score: 10 | 8e01eb7a-61f8-4144-a9be-45430ccfb015
+
+  Prompt: 'A cinematic anime-style top-down view of a dimly lit street at night outside the'
+                       GPT Image 1 | Score: 8 | a310c835-ac89-4ff7-a1ea-b8156cb456c9
+                       GPT Image 1 | Score: 9 | d4664173-f762-4e4a-a614-63266f753f89
+                       GPT Image 1 | Score: 8 | 0fe9f94d-ca34-4bcd-981b-8be4a7be67d3
+                       GPT Image 1 | Score: 9 | 4b26c77b-77f4-4729-af3e-966d912e1d3c
+                       GPT Image 1 | Score: 8 | 0b707f60-f01f-4017-a1f6-eb5aa3f7b623
+                       GPT Image 1 | Score: 8 | 22c82e3a-ded8-4b56-9d6c-9bffe39f19a8
+                       GPT Image 1 | Score: 8 | a040259a-9647-4078-a5c2-96892df0a13b
+                       GPT Image 1 | Score: 8 | f107dbf1-fc6e-44aa-b934-d0b097d1c5be
+                       GPT Image 1 | Score: 9 | 176751a8-2a86-4cc8-a244-eeadc8d51950
+
+  Prompt: 'A cinematic anime-style wide shot inside Adam’s modern, minimal luxury bedroom a'
+                       GPT Image 1 | Score: 9 | 088e92a2-c1d7-493e-8054-3a64d22f4f49
+                       GPT Image 1 | Score: 9 | d6cb560b-bc2d-4c0c-abe3-f950c6aaab2d
+                       GPT Image 1 | Score: 9 | 4bde74e1-8f98-4dd3-b34d-1ddb69fd4c7e
+                       GPT Image 1 | Score: 9 | 22f89700-4539-4f9d-bf49-65f16b713a9d
+                       Nano Banana | Score: 8 | 3aca6950-efce-44f8-b5b3-0b20009758ba
+                       GPT Image 1 | Score: 9 | 2b203d7e-f1ae-4a76-9d0c-17bbe223208e
+                       GPT Image 1 | Score: 8 | 7ed1714c-b118-48ed-9317-531a0b0b1761
+                       GPT Image 1 | Score: 9 | 9f81abad-ddb0-49c4-9741-563b4b65919c
+                 Shot Image OpenAI | Score: 10 | 30326fba-9bca-4ff5-8731-bb45ae6b2db4
+
+  Prompt: 'A cinematic anime-style medium-wide shot of Adam (Image 1), a grey skinned man,'
+                       GPT Image 1 | Score: 9 | f45f381f-bfa6-4cf0-8664-6fa1303ff502
+                  Flux Kontext Pro | Score: 9 | 5516069f-582e-4ce4-8648-64532313e173
+                       GPT Image 1 | Score: 9 | 7550846f-69f2-4358-86fe-3df37eb62e82
+                       GPT Image 1 | Score: 9 | 9efe2e61-a649-4527-ac87-1c67d9b89385
+                       GPT Image 1 | Score: 9 | cd4ae9b1-5d40-4c2f-a362-a4f6fe672d72
+                       GPT Image 1 | Score: 9 | 3602e9ad-5d90-4137-8d89-46de9d2e50ef
+                       GPT Image 1 | Score: 9 | 25d784af-575b-4ec1-9947-76b38d07389a
+                       GPT Image 1 | Score: 9 | 5267f048-1c0c-4bdd-b946-4bfa7088db8e
+
+  Prompt: 'Establishing shot of the private terminal pickup area at Zurich Airport. The sum'
+                       Nano Banana | Score: 9 | 11851b1c-4331-4692-badf-664a271309cb
+                       GPT Image 1 | Score: 10 | c29a783f-73c2-4275-8ce1-81364178834f
+                    Imagegen4 Fast | Score: 8 | f0e413e5-684c-4116-ba79-5e47fb76a8bc
+                       GPT Image 1 | Score: 10 | 1936365e-abb8-441e-ae63-3d27ca543ff0
+                       Nano Banana | Score: 10 | 0a1400de-9c97-49aa-9731-a04cd03215de
+                       Nano Banana | Score: 9 | ba37289d-a255-4add-b815-c7f0da11ef56
+                       GPT Image 1 | Score: 10 | a5ea9202-be20-4e61-ba25-949afda0f635
+                       Nano Banana | Score: 10 | b08d9042-09e4-4c25-a762-97cf6c049cc7
+
+--- VIDEO: Prompts tried with multiple models AND scored: 133 ---
+
+  Prompt: 'A woman in a dark green suit with a gold pendant necklace has just woken up from'
+                    Seedance 1 Pro | Score: 4 | 310c5bfb-89f0-4a99-b863-80f5bd7eb647
+                    Seedance 1 Pro | Score: 7 | 1f305447-f4f1-4bc1-a6b2-bf1ab8a8b6dc
+                    Seedance 1 Pro | Score: 8 | 61864720-263e-428f-a0bd-3d6dba6041ad
+                    Seedance 1 Pro | Score: 8 | f8d5a0d1-38df-442f-8eca-e4a944c96b73
+                    Seedance 1 Pro | Score: 8 | dd26b3dc-a99c-4252-b623-efa10a2ad280
+                    Seedance 1 Pro | Score: 8 | 6004b7f7-f9d8-4ac3-b44f-87b3ca8f9af6
+                        Kling V2.1 | Score: 6 | 9cae3256-0b04-4ae9-8f07-475fcee92f83
+                    Seedance 1 Pro | Score: 8 | 2623f8a1-3a50-4d39-9457-de2ce46b82a3
+                        Kling V2.1 | Score: 6 | 2959f2b7-054c-433c-877c-46fdf67ef866
+                        Kling V2.1 | Score: 8 | c524776c-93bd-4f10-812f-2165dbea0ccd
+                        Kling V2.0 | Score: 8 | b77f13e3-ada9-4d20-88e0-0cdaf6d8e38d
+                    Kling V1.6 Pro | Score: 6 | b62bcce6-8c5e-4dd7-bce5-4674ede6b7d4
+                        Kling V1.6 | Score: 4 | c7c8a425-3e7f-4bf2-8bf4-a70390c3b34d
+           Minimax I2V-01-Director | Score: 7 | 6b7bb316-0b51-4346-bc26-7b9980024537
+               Minimax I2V-01-Live | Score: 7 | c37da912-fbbd-4264-8b76-c5d346cff32c
+                              Veo2 | Score: 5 | 6a9db9fa-cb4a-4e84-95c6-0edf3213d871
+                        Hailuo 2.0 | Score: 8 | 66940443-d1e6-48e3-a4a8-3e4986688e49
+                    Seedance 1 Pro | Score: 9 | 527605c9-40d4-4c00-9088-e680eeb870c4
+                    Seedance 1 Pro | Score: 8 | 03773da1-1ee2-4907-87b6-4e83250802d7
+
+  Prompt: 'Inside a decaying, dimly lit hallway of an old house, the camera holds a static,'
+                    Seedance 1 Pro | Score: 3 | e1a1a4f4-b9a6-496c-acf5-b97c17ea5578
+                    Seedance 1 Pro | Score: 7 | d500c305-ce00-4f77-9f86-024c8728933a
+                    Seedance 1 Pro | Score: 3 | 0066235c-d393-4420-9923-9c700e7a5bf6
+                    Seedance 1 Pro | Score: 9 | 3b585ad3-fa39-4e14-97ef-5f67d84f5d36
+                    Seedance 1 Pro | Score: 9 | 64fff478-3823-4ae6-8f91-2b3c5a1673c3
+                    Seedance 1 Pro | Score: 6 | d35f577e-7325-41b6-b561-1587b81275e5
+                        Hailuo 2.0 | Score: 7 | 257e5e0d-39cf-4dde-bbcc-5b3604e20d9e
+                        Hailuo 2.0 | Score: 8 | e4c6bf15-33ee-4c58-aece-993c70a1ab88
+                    Seedance 1 Pro | Score: 9 | 7ed55f8d-b290-4233-8eb0-332c133f02df
+                    Seedance 1 Pro | Score: 8 | e93e3775-bff2-4e9f-96eb-a5d265e2bd85
+
+  Prompt: 'A man in a plain outfit had already dived outward through a vertical glass windo'
+                    Seedance 1 Pro | Score: 8 | b2cc3a73-b3bc-4fdb-b4ea-1e760104aaa4
+                    Seedance 1 Pro | Score: 8 | 53ebc9a8-62d7-47ed-8f7c-93aaa0322381
+                    Seedance 1 Pro | Score: 8 | 0ef97b99-4c17-4b49-9fd4-927e39295399
+                    Seedance 1 Pro | Score: 8 | ffa791b1-cd83-489b-b2c4-9c214deb01cd
+                      Wan 2.2 Fast | Score: 7 | 6d695ba1-6683-4ae4-b953-41917f824bcd
+                      Wan 2.2 Fast | Score: 9 | e898fc18-aa00-4e1a-b79e-d7c366bc8b64
+                      Wan 2.2 Fast | Score: 7 | 500c022d-834d-4dfc-86d3-5b1a5440d542
+                    Seedance 1 Pro | Score: 3 | ec156b55-5ff1-462f-b525-d8d0cb5a39f0
+
+  Prompt: 'A young woman with dark curly hair tied in puffs walks forward very slowly in a'
+                        Kling V2.1 | Score: 4 | a1aaf94c-f3f6-43ba-8032-61a3142da095
+                        Kling V2.1 | Score: 6 | 09d9b634-a6fe-4daf-886d-a65c9ce728af
+                        Kling V2.1 | Score: 9 | a3789499-1600-44eb-8148-4b20a39f840b
+                        Kling V2.1 | Score: 6 | c62fdb34-dcf1-4c3d-b87b-8a6d505e3c23
+                        Hailuo 2.0 | Score: 8 | bffa571b-64ae-4ffe-8284-3d7844b4ac10
+                    Kling V1.6 Pro | Score: 6 | fff22b96-8f55-4133-b3d9-c4c048081c5d
+                    Kling V1.6 Pro | Score: 6 | 6a5cd164-97e0-4bc1-9aef-64d37db692e3
+                    Kling V1.6 Pro | Score: 6 | d5ca85e8-eca2-43ec-ae1e-bcb786732a06
+
+  Prompt: 'A couple slowly walking towards the door in front of them, away from camera. Cam'
+                        Hailuo 2.0 | Score: 7 | 461f0081-1d28-463c-83ed-14e9dffe91c5
+                        Hailuo 2.0 | Score: 8 | d427c390-708b-42c2-a1b1-e355ae19f5bb
+                    Seedance 1 Pro | Score: 4 | 19fed952-5775-444b-bbe4-5759c0f6c68d
+                    Seedance 1 Pro | Score: 5 | fdca6e6d-5e8f-45e6-8e82-f825c17d7405
+                        Hailuo 2.0 | Score: 6 | 1506f24b-67fa-455b-aa79-62940e705dcd
+                    Seedance 1 Pro | Score: 6 | 0d265dc6-eb47-4574-bd1b-547e9a717393
+                    Seedance 1 Pro | Score: 6 | 267482f4-6bad-42f0-bcdd-37706ed3e4c6
+                        Hailuo 2.0 | Score: 7 | f6b81efe-dbef-4a28-8c9d-910515803021
+
+======================================================================
+ENTRIES WITHOUT QA ANALYSIS
+======================================================================
+
+--- IMAGE ---
+  No QA score: 5089 / 8111
+  Completed but no QA: 4867
+  Model distribution (no QA, completed):
+    GPT Image 1: 1948
+    Shot Image OpenAI: 727
+    Flux Schnell: 491
+    Flux Kontext Pro: 437
+    Environment Image OpenAI: 291
+    Flux Dev: 173
+    Character Image OpenAI: 156
+    Image Edit OpenAI: 92
+    Zaal 04: 82
+    Banu 02: 48
+
+--- VIDEO ---
+  No QA score: 2809 / 4141
+  Completed but no QA: 2634
+  Model distribution (no QA, completed):
+    Kling V2.0: 724
+    Hailuo 2.0: 485
+    Kling V1.6 Pro: 370
+    Seedance 1 Pro: 348
+    Kling V2.1: 262
+    Minimax I2V-01-Live: 191
+    Kling V1.6: 105
+    Vidu 2.0: 70
+    Veo2: 31
+    Vidu 1.5: 16
+
+======================================================================
+VIDEO: REWRITTEN PROMPT ANALYSIS
+======================================================================
+Scored videos with rewritten prompt: 963
+Scored videos without rewritten prompt: 369
+
+Mean qaScore WITH rewrite: 6.75
+Mean qaScore WITHOUT rewrite: 7.64
+
+--- Common additions in rewritten prompts ---
+    consistency instruction: original 16.3% → rewritten 61.5%
+           smooth animation: original 11.8% → rewritten 47.2%
+               no artifacts: original 19.0% → rewritten 38.2%
+            facial features: original 8.8% → rewritten 34.5%
+         camera instruction: original 15.9% → rewritten 17.8%
+                sound/audio: original 5.5% → rewritten 18.0%
+       lighting instruction: original 16.5% → rewritten 22.9%
+
+--- Sample rewrite comparisons ---
+
+  jobId: 505debbd-704a-4938-a01a-065a04963e97
+  Score: 8
+  ORIGINAL:  A stylish woman with a sleek bob haircut and dark sunglasses sits in the driver’s seat of a car at night. She wears a sharp black suit and a ruby choker. The camera is focused on her as she remains st...
+  REWRITTEN: A stylish woman with a sleek bob haircut and dark sunglasses sits motionless in the driver’s seat of a car at night, wearing a fitted black suit and a ruby choker. The camera remains focused closely o...
+
+  jobId: d5b5583c-dba5-482a-9bf5-7226633756ed
+  Score: 9
+  ORIGINAL:  A stylish woman with a sleek bob haircut and dark sunglasses sits in the driver’s seat of a car at night. She wears a sharp black suit and a ruby choker. The camera is focused on her as she remains st...
+  REWRITTEN: A stylish woman with a sleek bob haircut and dark sunglasses sits still in the driver’s seat of a car at night, wearing a sharp black suit and a ruby choker. The camera focuses on her face and upper b...
+
+  jobId: 8bee6021-a4ec-41d7-97d6-172738809ab9
+  Score: 8
+  ORIGINAL:  A vet character is telling the below dialogue to a calm girl.
+DIALOGUE : Toh ye hai aapki nayi cat.. Chaliye isey injection laga deta hu.....
+  REWRITTEN: Animated vet character with consistent white gloves and steady hand shapes faces a calm girl. The vet gently holds a motionless cat and, with a steady hand, prepares to administer an injection, saying...
+
+======================================================================
+CANDIDATE REGRESSION TEST CASES
+======================================================================
+Total regression candidates found: 1299
+  visual_artifacts: 852
+  character_missing: 187
+  prompt_not_fulfilled: 155
+  identity_drift: 105
+
+--- Best candidates per failure type ---
+
+  [character_missing]
+    jobId: 66d85554-0881-4340-88a4-e602b102b574
+    Score: 0
+    Reason: Characters - Cannot assess if the person from Image 1 has replaced the man on the bed, as Image 1 is missing and character consistency, pose, and facial features cannot be evaluated. Setting - Unable 
+
+  [prompt_not_fulfilled]
+    jobId: e993613f-aef9-45f7-9601-5dcfd2e6b622
+    Score: 0
+    Reason: Characters - The generated image does not represent any of the reference characters (animated robot, anime character, illustrated soldier); facial features, style, and identities are inconsistent with
+
+  [identity_drift]
+    jobId: 0241e17a-db49-4668-a975-08672b2ded71
+    Score: 3
+    Reason: Characters - Face, body, and proportions are inconsistent across frames; facial features are distorted or missing in places. Setting - The character returns unnecessarily to the corridor floor, which 
+
+  [visual_artifacts]
+    jobId: 89b12618-9fb0-4ca0-87e2-1e7f5260721a
+    Score: 2
+    Reason: Characters – Character slows down and stops at the window, breaking the required unbroken momentum; outfit vanishes revealing anatomy errors; body pose loses running velocity; severe identity and anat
+
+======================================================================
+GENERATING APPENDIX TABLE
+======================================================================
+
+Appendix jobs selected: 9
+  Image: 4
+  Video: 5
+
+Appendix table written to analysis_output/appendix_table.md
+Full details written to analysis_output/appendix_full_details.json
+
+======================================================================
+SUMMARY STATISTICS FOR MEMO
+======================================================================
+
+--- IMAGE ---
+  Total entries: 8111
+  Scored: 3022 (37.3%)
+  Mean qaScore: 8.41
+  Median qaScore: 9.0
+  % scoring ≥8 ('good'): 80.9%
+  % scoring ≤4 ('fail'): 4.2%
+  Unique models used: 45
+  Unique models with scores: 10
+  Failed jobs: 165 (2.0%)
+
+--- VIDEO ---
+  Total entries: 4141
+  Scored: 1332 (32.2%)
+  Mean qaScore: 6.99
+  Median qaScore: 7.0
+  % scoring ≥8 ('good'): 45.6%
+  % scoring ≤4 ('fail'): 12.2%
+  Unique models used: 17
+  Unique models with scores: 10
+  Failed jobs: 153 (3.7%)
+
+======================================================================
+ANALYSIS COMPLETE
+======================================================================
+
+Output files in: analysis_output/
+  - appendix_table.md
+  - appendix_full_details.json

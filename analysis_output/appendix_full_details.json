@@ -1,0 +1,167 @@
+[
+  {
+    "jobId": "e268c427-dc7d-4f82-a1fa-14268f374460",
+    "media": "image",
+    "category": "complete failure",
+    "qa_agree": "agree",
+    "modelTitle": "Nano Banana",
+    "qaScore": 3,
+    "qaTransformedScore": 2,
+    "prompt": "Add a reference image 1 character in the input image 2. And make it a wide-angle shot.\n",
+    "qaReasoning": "The generated image fails to add the character from reference image 1 (the black cat) into input image 2, which was the main prompt requirement. The scene remains unchanged from the input image 2, containing only the two human characters without the reference cat. There are no visual artifacts, but the major flaw is the complete absence of the referenced character, failing the prompt.",
+    "qaActionableFeedback": "Characters - The black cat from reference image 1 is completely missing, which was the core prompt requirement. Story - The intended action of inserting the cat is not fulfilled, leading to a significant mismatch with the prompt.",
+    "qaRewrittenPrompt": "",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-b6478e77-05a4-49f8-9eb3-860515c4653b",
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-ea3a392a-23de-43c4-a915-83ebcc2a2725"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-da3b4972-6482-469e-823b-47284650623f"
+  },
+  {
+    "jobId": "efd7775c-0394-4558-80b4-d5326bb2f72b",
+    "media": "image",
+    "category": "QA possibly wrong (too high)",
+    "qa_agree": "disagree",
+    "modelTitle": "GPT Image 1",
+    "qaScore": 8,
+    "qaTransformedScore": 3,
+    "prompt": "Keep the character and the car proportional.\n",
+    "qaReasoning": "The generated image matches the prompt well, keeping the character and the car proportional. The character in the generated image is very similar to the reference image, with consistent clothing style, sunglasses, and overall look, but there are notable changes in facial features and hair. The reference has flowing hair and a visible necklace/choker, while the generated version has hair pulled back and no necklace. The pose is similar, but not identical. There are no obvious visual artifacts or distortions in the anatomy or perspective. Minor inconsistencies prevent a higher score.",
+    "qaActionableFeedback": "Characters \u2013 Differences in facial features and hair from the reference; missing necklace/choker. Pose is similar but not identical.",
+    "qaRewrittenPrompt": "",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-23c4dc3a-925d-42d1-bfe4-7c236a2ece4d"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-b3117bd8-d299-4712-974f-227a3bc3887b"
+  },
+  {
+    "jobId": "f387ab15-c7fe-48e7-83f0-4a469ef3cfe9",
+    "media": "image",
+    "category": "QA possibly wrong (too high)",
+    "qa_agree": "disagree",
+    "modelTitle": "Shot Image OpenAI",
+    "qaScore": 8,
+    "qaTransformedScore": 3,
+    "prompt": "Begin with a focus on the window glass, water trickling down and neon-lit city blurs passing outside. Some vague shapes\u2014reflections of passengers\u2014are faintly seen in the glass.\nCamera Angle: Pillow shot. - Lingers on the environment to heighten the sense of unease and disconnection. \nThe scene takes place in Night Train Carriage environment given in image 1. \nFrame the composition to reflect the cinematic tone of the scene. Show only what would be visible in this specific shot. \nDo not include text or borders. No narration or captions unless specified. This is a still from a film.",
+    "qaReasoning": "The generated image powerfully captures the prompt requirements\u2014a focus on window glass with water trickling down, neon-lit city blurs, and vague shapes as faint passenger reflections. The cinematic tone and pillow shot angle are well executed to evoke unease and disconnection. However, there are discrepancies in consistency with the reference environment: the reference carriage is bright, wooden, and stylized, while the generated image is highly realistic and dark, with no visible interior elements of the train carriage such as the bench color or wood textures present in the reference. There are no major visual artifacts, but the difference in style and lack of direct environmental cues from the reference carriage prevent a higher score.",
+    "qaActionableFeedback": "Setting - The generated image lacks consistency with the reference environment\u2014missing bright lighting, wooden elements, and visible train carriage details from the prompt. Style - The overall style is more realistic and dark than the stylized reference image.",
+    "qaRewrittenPrompt": "",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-cbbb85b3-8929-4aee-9531-a9772a5a25cc"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-5c6f3d96-af38-455f-ad8f-693997b51be4"
+  },
+  {
+    "jobId": "c2c56d4b-9a36-44ad-a764-f8aa07f4f1f0",
+    "media": "image",
+    "category": "perfect score no feedback",
+    "qa_agree": "cannot verify",
+    "modelTitle": "Shot Image OpenAI",
+    "qaScore": 10,
+    "qaTransformedScore": 4,
+    "prompt": "A quiet city street at midnight. Priya steps out of a taxi, exhausted, as the cab idles at the curb in front of her apartment building.\nCamera Angle: ESTABLISHING_SHOT -A wide or distant view used to show the setting or context.. Wide view shows the empty street, the looming building, and places Priya and the taxi within the lonely night environment. \nThe Priya reference is given in image 1. \nThe Taxi Driver reference is given in image 2. \nThe scene takes place in Apartment Building Exterior at Midnight environment given in image 3. \nFrame the composition to reflect the cinematic tone of the scene. Show only what would be visible in this specific shot. \nDo not include text or borders. No narration or captions unless specified. This is a still from a film.",
+    "qaReasoning": "The generated image matches the prompt very well, providing an establishing, wide shot of a quiet city street at midnight with the apartment building and empty street visible, and it places both Priya and the taxi (with the driver) within the frame. The apartment building and street environment are consistent with the reference. Priya\u2019s appearance, pose, clothing, and facial features all closely match the reference (image 1), and the taxi driver is visible, though less prominent, they match the driver\u2019s silhouette and placement in the taxi (from image 2). There are no noticeable visual artifacts or distortions; the cinematic tone and composition are strong and appropriate for a film still.",
+    "qaActionableFeedback": "",
+    "qaRewrittenPrompt": "",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-2b09bc34-5915-48c2-b592-28c4f97aaba8",
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-80e2dd8b-e1e6-455b-befd-bdb772efb16d",
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-fc867c3b-dd2e-4052-88fd-15dcc3a09510"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-33738d04-48a4-4648-a1d9-37e39a16c309"
+  },
+  {
+    "jobId": "e5406625-7fb0-43b5-a59d-0747acb9b9db",
+    "media": "video",
+    "category": "low score",
+    "qa_agree": "partially agree",
+    "modelTitle": "Seedance 1 Pro",
+    "qaScore": 3,
+    "qaTransformedScore": 1,
+    "prompt": "No characters present. The environment should appear calm but empty, moonlight casting soft shadows, emphasizing absence and solitude.\nCamera Angle: PILLOW_SHOT - Establishes the setting's emotional emptiness before returning to character focus. ",
+    "qaReasoning": "The video frames do not match the prompt, as a character (the dog) is present throughout, which contradicts the requirement for an empty environment emphasizing absence and solitude. The pillow shot intended to establish emotional emptiness is not achieved. There are also noticeable animation artifacts in transitions (distortions and warping in the dog\u2019s pose and facial features), particularly from the third frame onward\u2014indicating major flaws compared to the reference.",
+    "qaActionableFeedback": "Characters - Character (dog) present throughout, contradicting the \"no characters\" prompt. Setting - Environment fails to emphasize absence and solitude as required, due to presence of the dog and lack of emotional emptiness in the pillow shot. Story - Prompt for establishing emptiness is not achieved. Style - Major animation artifacts and distortions noticeable from the third frame onward.",
+    "qaRewrittenPrompt": "Start with a still, empty living room at night; show only the unoccupied pet bed, no characters visible. Moonlight softly filters through the window, casting gentle shadows and highlighting the quiet and loneliness. Use a low pillow-level camera angle from the corner, lingering to emphasize the solitude and absence. Sound: faint crickets and distant nighttime city hum.",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-3f45db3c-e913-4455-bb41-985f9e1ba7d6"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-72df1117-d1c9-4878-8b0b-711e589d8d05"
+  },
+  {
+    "jobId": "94d76e85-67c2-455d-a3fd-fc8dec3cc767",
+    "media": "video",
+    "category": "low score",
+    "qa_agree": "partially agree",
+    "modelTitle": "Seedance 1 Pro",
+    "qaScore": 4,
+    "qaTransformedScore": 2,
+    "prompt": "A doctor character walking inside the home and yellow dog character is terrified and hides behind sofa.\n",
+    "qaReasoning": "The video frames are visually consistent in style and character with the reference image, with the doctor and yellow dog maintaining similar facial features and outfits throughout. However, the video does not fulfill the prompt requirements: the prompt specifies that the doctor character should be walking inside the home and the yellow dog character should be terrified and hiding behind the sofa. In all frames, the dog character is standing or walking toward the sofa, but never actually hides behind it, and the sense of terror is only minimally conveyed by the facial expression. Additionally, the sofa is never used as a hiding spot. There are no major video artifacts, though some minor motion distortion is visible as the dog approaches the sofa, but the main issue is the prompt not being fulfilled.",
+    "qaActionableFeedback": "Story - The dog does not hide behind the sofa as prompted, and its terror is only minimally conveyed. Action is not fully aligned with the prompt. Characters - Dog's expression does not convincingly show fear.",
+    "qaRewrittenPrompt": "A doctor character enters the home from the doorway, walking towards the living room. The yellow dog character, visibly terrified with wide eyes and trembling, quickly moves and hides behind the sofa, peeking out in fear.",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-1db777c0-e689-4ec7-a678-c5e459c27a47"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-06446735-c2e0-47cc-89ec-a5e971050531"
+  },
+  {
+    "jobId": "8bee6021-a4ec-41d7-97d6-172738809ab9",
+    "media": "video",
+    "category": "QA possibly wrong (overlooking drift)",
+    "qa_agree": "disagree",
+    "modelTitle": "Seedance 1 Pro",
+    "qaScore": 8,
+    "qaTransformedScore": 3,
+    "prompt": "A vet character is telling the below dialogue to a calm girl.\nDIALOGUE : Toh ye hai aapki nayi cat.. Chaliye isey injection laga deta hu..",
+    "qaReasoning": "The characters remain highly consistent with the reference image in terms of facial features, pose, and overall appearance (except for some minor inconsistencies in the doctor\u2019s glove color and the hand shapes as he picks up the cat). The prompt is fulfilled\u2014there is a vet, a calm girl, a new cat, and the suggestion of an injection situation. However, there are notable AI animation artifacts including some morphing of hands (especially as the vet manipulates the cat), slight facial distortions, inconsistent glove coloring, and a somewhat jittery appearance for the cat's position and design across frames. These are important and noticeable but do not fully break recognition, so the sequence scores an 8.",
+    "qaActionableFeedback": "Characters - Minor inconsistencies in the doctor\u2019s glove color and hand shapes, some morphing of hands as the vet manipulates the cat, slight facial distortions, and a jittery appearance for the cat's position and design across frames.",
+    "qaRewrittenPrompt": "Animated vet character with consistent white gloves and steady hand shapes faces a calm girl. The vet gently holds a motionless cat and, with a steady hand, prepares to administer an injection, saying, \"Toh ye hai aapki nayi cat.. Chaliye isey injection laga deta hu..\" Ensure smooth cat appearance and stable character designs throughout.",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-f6987934-451b-4bc8-bc88-345b61429750"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-fe500ec0-78ee-4bc3-bd47-75ea53ed5eca"
+  },
+  {
+    "jobId": "0af95e0c-aa86-471b-a7ff-63fe134c6d20",
+    "media": "video",
+    "category": "QA possibly wrong (overlooking drift)",
+    "qa_agree": "disagree",
+    "modelTitle": "Seedance 1 Pro",
+    "qaScore": 7,
+    "qaTransformedScore": 3,
+    "prompt": "Cuddles stands, stifling a yawn, and quietly exits. Koyal waves, her expression softened now, and watches him leave.\nCamera Angle: MEDIUM_SHOT - Composed quietly; sets up final bedtime. ",
+    "qaReasoning": "The characters in the video frames are recognizable and largely consistent with the reference image in terms of overall appearance, clothing, and scene composition. The video matches the prompt well by showing the dog character exiting while the crow remains and her expression softens. However, there are some noticeable AI-generated video artifacts, such as inconsistent facial features (especially for the dog, whose expressions at times diverge from the intended \"stifling a yawn\" or calm demeanor), slight pose irregularities, and minor distortions that become more evident in the motion arcs. The style remains uniform but lacks the natural transition and polish a non-AI-generated animation would have.",
+    "qaActionableFeedback": "Characters - The dog\u2019s facial expressions are inconsistent and at times diverge from the intended calm or \"stifling a yawn\" demeanor. Minor distortions and pose irregularities are noticeable, especially during motion. Style - Animation lacks polish and natural transitions.",
+    "qaRewrittenPrompt": "Medium shot, night balcony. The dog character stands, stifles a yawn with a calm, sleepy expression, and quietly walks to the right toward the apartment interior, exiting the frame. The bird character, with a softened, gentle look, slowly raises one wing to wave goodnight and watches the dog leave. Very slow pan right as the dog exits. Footsteps softly fade, gentle wing sweep sound.",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/asset-f1a2615a-11fe-4439-9830-3135df45af1a"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-b7ff4013-d03f-4569-bbb0-7eb544893597"
+  },
+  {
+    "jobId": "505debbd-704a-4938-a01a-065a04963e97",
+    "media": "video",
+    "category": "has rewritten prompt",
+    "qa_agree": "agree",
+    "modelTitle": "Seedance 1 Pro",
+    "qaScore": 8,
+    "qaTransformedScore": 3,
+    "prompt": "A stylish woman with a sleek bob haircut and dark sunglasses sits in the driver\u2019s seat of a car at night. She wears a sharp black suit and a ruby choker. The camera is focused on her as she remains still, only her lips moving slightly as she speaks in a subtle, restrained way. Minimal motion, smooth and cinematic, with a calm, composed atmosphere",
+    "qaReasoning": "The frames are highly consistent with the reference image and the prompt: the woman has the same sleek bob haircut, sunglasses, black suit, and ruby choker. The atmosphere remains calm, composed, and cinematic with minimal motion, matching the description. However, there are some noticeable AI video artifacts, particularly in the transitions between frames (e.g., inconsistent jawline, changing line thickness, and minor warping of the mouth and face). These artifacts are evident to the human eye but do not drastically deform the character or break overall frame continuity.",
+    "qaActionableFeedback": "Characters - Noticeable consistency issues in facial features (jawline, mouth, and line thickness fluctuate between frames), leading to minor identity drift across video. Animation - Visible AI artifacts in transitions detract slightly from overall smoothness.",
+    "qaRewrittenPrompt": "A stylish woman with a sleek bob haircut and dark sunglasses sits motionless in the driver\u2019s seat of a car at night, wearing a fitted black suit and a ruby choker. The camera remains focused closely on her face; only her lips move slightly as she speaks calmly. Ensure facial features, jawline, and mouth shape remain consistent throughout all frames, with line thickness uniform and transitions smooth for a composed, cinematic atmosphere.",
+    "images": [
+      null,
+      "https://renderboard-test.s3.us-east-005.backblazeb2.com/images/base64-7fbd52ae-62cd-49f9-bf75-65588a7a8120"
+    ],
+    "output": "https://renderboard-test.s3.us-east-005.backblazeb2.com/videos/asset-39131511-fb32-4704-8e9a-30968dca4539"
+  }
+]
